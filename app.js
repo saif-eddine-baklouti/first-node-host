@@ -1,3 +1,12 @@
+var admin = require("firebase-admin");
+
+var serviceAccount = require("path/to/serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+
 const http = require("http");
 const dotenv = require("dotenv");
 const fs = require("fs");
@@ -26,3 +35,5 @@ const server = http.createServer((request, response) => {
 server.listen(process.env.PORT, () => {
     console.log("Le serveur a démarré");
 });
+
+// console.log('yes');
